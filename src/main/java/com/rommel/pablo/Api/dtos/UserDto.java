@@ -5,42 +5,28 @@ import com.rommel.pablo.Api.entities.User;
 public class UserDto {
 
     private int id;
-    private String nombres,apellidos,cargo,usuario,contrasena,area;
+    private String nombres,apellidos,cargo,contrasena,area;
 
 
-    public UserDto(String nombres, String apellidos, String cargo, String usuario, String contrasena, String area) {
+    public UserDto(String nombres, String apellidos, String cargo, String contrasena, String area) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.cargo = cargo;
-        this.usuario = usuario;
         this.contrasena = contrasena;
         this.area = area;
     }
 
     public UserDto(User user){
         this.id=user.getId();
-        this.nombre=user.getNombres();
-        this.email=user.getEmail();
+        this.nombres=user.getNombres();
+        this.apellidos= user.getApellidos();
+        this.cargo= user.getCargo();
+        this.contrasena = user.getContrasena();
+        this.area = user.getArea();
     }
 
 
     public UserDto() {
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public int getId() {
@@ -51,11 +37,43 @@ public class UserDto {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
     }
 }
