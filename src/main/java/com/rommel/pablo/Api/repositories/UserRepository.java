@@ -1,7 +1,11 @@
 package com.rommel.pablo.Api.repositories;
 
 import com.rommel.pablo.Api.entities.User;
+import com.rommel.pablo.Api.entities.generated.UsuarioEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User,Integer> {
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository<UsuarioEntity,Integer> {
+    Optional<UsuarioEntity> findByApellidos(String apellidos);
 }
