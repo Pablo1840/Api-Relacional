@@ -3,6 +3,7 @@ package com.rommel.pablo.Api.entities.generated;
 import javax.persistence.*;
 import java.util.Objects;
 
+
 @Entity
 @Table(name = "usuario", schema = "esquema1", catalog = "proyecto")
 public class UsuarioEntity {

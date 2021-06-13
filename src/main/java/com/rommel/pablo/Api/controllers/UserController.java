@@ -10,14 +10,30 @@ import java.util.Optional;
 
 @Controller
 public class UserController {
+
     private UserRepository userRepository;
 
     @Autowired
-    public UserController(UserRepository userRepository){
+    public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     public UserDto login(UserDto userDto) {
-        Optional<UsuarioEntity> userOptional = this.userRepository.findByApellidos(userDto.getApellidos());
+        Optional<UsuarioEntity> userOptional = this.userRepository.findByCodUsuario(userDto.getCodUsuario());
+        if (userOptional.isPresent()) {
+            UsuarioEntity user = userOptional.get();
+            UserDto userDto1;
+            if (user.getContrasena().equals(userDto.getContrasena())) {
+                userDto1 = new UserDto(user);
+            } else {
+                userDto1 = new UserDto();
+                userDto1.setCodUsuario(user.getCodUsuario());
+            }
+            return userDto1;
+
+        } else {
+            return new UserDto();
+        }
+
     }
 }

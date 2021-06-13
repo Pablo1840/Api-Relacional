@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<UsuarioEntity,Integer> {
-    Optional<UsuarioEntity> findByApellidos(String apellidos);
+    Optional<UsuarioEntity> findByCodUsuario(int codUsuario);
 }

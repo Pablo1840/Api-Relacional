@@ -1,40 +1,55 @@
 package com.rommel.pablo.Api.dtos;
 
-import com.rommel.pablo.Api.entities.User;
+import com.rommel.pablo.Api.entities.generated.UsuarioEntity;
 
 public class UserDto {
 
-    private int id;
-    private String nombres,apellidos,cargo,contrasena,area;
+    private int codUsuario;
+    private String contrasena,cargo,nombres,apellidos,area;
 
-
-    public UserDto(String nombres, String apellidos, String cargo, String contrasena, String area) {
+    public UserDto(int codUsuario, String contrasena, String cargo, String nombres, String apellidos, String area) {
+        this.codUsuario = codUsuario;
+        this.contrasena = contrasena;
+        this.cargo = cargo;
         this.nombres = nombres;
         this.apellidos = apellidos;
-        this.cargo = cargo;
-        this.contrasena = contrasena;
         this.area = area;
     }
 
-    public UserDto(User user){
-        this.id=user.getId();
-        this.nombres=user.getNombres();
-        this.apellidos= user.getApellidos();
-        this.cargo= user.getCargo();
-        this.contrasena = user.getContrasena();
-        this.area = user.getArea();
+    public UserDto(UsuarioEntity user) {
+        this.codUsuario = codUsuario;
+        this.contrasena = contrasena;
+        this.cargo = cargo;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.area = area;
     }
-
 
     public UserDto() {
     }
 
-    public int getId() {
-        return id;
+    public int getCodUsuario() {
+        return codUsuario;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCodUsuario(int codUsuario) {
+        this.codUsuario = codUsuario;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
     public String getNombres() {
@@ -51,22 +66,6 @@ public class UserDto {
 
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
-    }
-
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
-
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
     }
 
     public String getArea() {
