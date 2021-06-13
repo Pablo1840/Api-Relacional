@@ -2,7 +2,7 @@ package com.rommel.pablo.Api.entities.generated;
 
 import javax.persistence.*;
 import java.util.Objects;
-
+import java.io.Serializable;
 
 @Entity
 @Table(name = "usuario", schema = "esquema1", catalog = "proyecto")
@@ -16,7 +16,7 @@ public class UsuarioEntity {
 
     @Id
     @Column(name = "cod_usuario", nullable = false)
-    public Object getCodUsuario() {
+    public Objects getCodUsuario() {
         return codUsuario;
     }
 
