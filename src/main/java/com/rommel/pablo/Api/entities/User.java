@@ -9,45 +9,44 @@ import java.util.Objects;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int codUsuario;
 
-    private String cargo, nombres, apellidos,usuario,contrasena,area;
+    private String cargo, nombres, apellidos,email,contrasena,area;
 
     
-	public User(int id, String cargo, String nombres, String apellidos, String usuario, String contrasena,
+	public User(int codUsuario,String cargo, String nombres, String apellidos, String email, String contrasena,
 			String area) {
-		this.id = id;
+		this.codUsuario = codUsuario;
 		this.cargo = cargo;
 		this.nombres = nombres;
 		this.apellidos = apellidos;
-		this.usuario = usuario;
+		this.email = email;
 		this.contrasena = contrasena;
 		this.area = area;
 	}
 	
 	public User() {
     }
-	
-	 @Override
-	    public boolean equals(Object obj) {
-	        if (this == obj) return true;
-	        if (obj == null || getClass() != obj.getClass()) return false;
-	        User user = (User) obj;
-	        return Objects.equals(id, user.getId())
-	                && Objects.equals(cargo, user.getCargo());
-	   }
-	 
-	 @Override
-	    public int hashCode() {
-	        return Objects.hash(id, cargo, nombres, apellidos, usuario, contrasena,area);
-	   }
 
-	public int getId() {
-		return id;
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		User user = (User) o;
+		return codUsuario == user.codUsuario && Objects.equals(cargo, user.cargo) && Objects.equals(nombres, user.nombres) && Objects.equals(apellidos, user.apellidos) && Objects.equals(email, user.email) && Objects.equals(contrasena, user.contrasena) && Objects.equals(area, user.area);
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	@Override
+	public int hashCode() {
+		return Objects.hash(codUsuario, cargo, nombres, apellidos, email, contrasena, area);
+	}
+
+	public int getCodUsuario() {
+		return codUsuario;
+	}
+
+	public void setCodUsuario(int codUsuario) {
+		this.codUsuario = codUsuario;
 	}
 
 	public String getCargo() {
@@ -74,12 +73,12 @@ public class User {
 		this.apellidos = apellidos;
 	}
 
-	public String getUsuario() {
-		return usuario;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getContrasena() {
@@ -97,6 +96,4 @@ public class User {
 	public void setArea(String area) {
 		this.area = area;
 	}
-    
-	 
 }

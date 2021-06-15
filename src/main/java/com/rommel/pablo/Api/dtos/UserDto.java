@@ -1,28 +1,23 @@
 package com.rommel.pablo.Api.dtos;
 
-import com.rommel.pablo.Api.entities.generated.UsuarioEntity;
+import com.rommel.pablo.Api.entities.User;
 
 public class UserDto {
-
     private int codUsuario;
-    private String contrasena,cargo,nombres,apellidos,area;
+    private  String email,contrasena,nombres,apellidos,area,cargo;
 
-    public UserDto(int codUsuario, String contrasena, String cargo, String nombres, String apellidos, String area) {
-        this.codUsuario = codUsuario;
+    public UserDto(String email, String contrasena) {
+        this.email = email;
         this.contrasena = contrasena;
-        this.cargo = cargo;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.area = area;
     }
 
-    public UserDto(UsuarioEntity user) {
-        this.codUsuario = codUsuario;
-        this.contrasena = contrasena;
-        this.cargo = cargo;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.area = area;
+    public UserDto(User user) {
+        this.codUsuario = user.getCodUsuario();
+        this.email = user.getEmail();
+        this.nombres = user.getNombres();
+        this.apellidos = user.getApellidos();
+        this.area = user.getArea();
+        this.cargo = user.getCargo();
     }
 
     public UserDto() {
@@ -36,20 +31,20 @@ public class UserDto {
         this.codUsuario = codUsuario;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getContrasena() {
         return contrasena;
     }
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
-    }
-
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
     }
 
     public String getNombres() {
@@ -74,5 +69,13 @@ public class UserDto {
 
     public void setArea(String area) {
         this.area = area;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 }

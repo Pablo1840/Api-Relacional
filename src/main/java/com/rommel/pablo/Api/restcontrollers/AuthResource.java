@@ -1,4 +1,5 @@
 package com.rommel.pablo.Api.restcontrollers;
+
 import com.rommel.pablo.Api.controllers.UserController;
 import com.rommel.pablo.Api.dtos.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class AuthResource {
     @PostMapping(value = LOGIN)
     public ResponseEntity login(@RequestBody UserDto userDto) {
         UserDto response = this.userController.login(userDto);
-        if (response.getCodUsuario()==null) {
+        if (response.getEmail()==null) {
             return new ResponseEntity("\"El usuario no  existe\"", HttpStatus.BAD_REQUEST);
         } else if (response.getNombres()==null) {
             return new ResponseEntity("\"Los datos ingresados son incorrectos\"", HttpStatus.BAD_REQUEST);
