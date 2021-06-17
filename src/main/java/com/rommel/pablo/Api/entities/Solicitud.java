@@ -22,12 +22,11 @@ public class Solicitud {
     private User usuario;
 	
 	
-	public Solicitud(int codigoSolicitud, String razon, String nombre, String estado, Date fecha) {
+	public Solicitud(int codigoSolicitud, String razon, String nombre, String estado, Date fecha, User codUser) {
 		this.codigoSolicitud = codigoSolicitud;
 		this.razon = razon;
 		this.nombre = nombre;
 		this.estado = estado;
-		this.fecha = fecha;
 	}
 	
 	public Solicitud(){

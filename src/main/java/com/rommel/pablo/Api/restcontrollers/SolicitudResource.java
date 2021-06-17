@@ -28,7 +28,7 @@ public class SolicitudResource {
     public ResponseEntity createSolicitud(@RequestBody Solicitud solicitud) throws SolicitudCreateException {
         try {
             this.solicitudController.createSolicitud(solicitud);
-            return new ResponseEntity("\"El producto fue creado\"", HttpStatus.ACCEPTED);
+            return new ResponseEntity("\"La Solicitud fue creada\"", HttpStatus.ACCEPTED);
         } catch (Exception e) {
             throw new SolicitudCreateException("los datos enviados no son los correctos");
         }
