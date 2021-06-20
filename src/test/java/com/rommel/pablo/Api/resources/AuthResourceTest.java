@@ -1,4 +1,4 @@
-package com.rommel.pablo.Api.restcontrollers;
+package com.rommel.pablo.Api.resources;
 
 import com.rommel.pablo.Api.dtos.UserDto;
 import org.junit.Before;

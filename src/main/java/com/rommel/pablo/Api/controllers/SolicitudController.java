@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class SolicitudController {
@@ -15,6 +16,18 @@ public class SolicitudController {
     @Autowired
     public SolicitudController(SolicitudRepository solicitudRepository) {
         this.solicitudRepository = solicitudRepository;
+    }
+
+    public List<Solicitud> findAllSolicituds() {
+        return this.solicitudRepository.findAll();
+    }
+
+    public Optional<Solicitud> findSolicitudByCodSolicitud(int codigoSolicitud) {
+        return this.solicitudRepository.findById(codigoSolicitud);
+    }
+
+    public List<Solicitud> findSolicitudsByUsuario_CodUsuario(int codUsuario) {
+        return this.solicitudRepository.findSolicitudsByUsuario_CodUsuario(codUsuario);
     }
 
     public void createSolicitud(Solicitud solicitud) {

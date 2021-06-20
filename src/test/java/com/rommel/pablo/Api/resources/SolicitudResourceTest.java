@@ -1,4 +1,4 @@
-package com.rommel.pablo.Api.restcontrollers;
+package com.rommel.pablo.Api.resources;
 
 import com.rommel.pablo.Api.entities.Solicitud;
 import org.junit.Before;
@@ -33,6 +33,22 @@ public class SolicitudResourceTest {
     }
 
     @Test
+    public void getAllSolicitud() {
+        String json = restService
+                .restBuilder(new RestBuilder<String>().clazz(String.class))
+                .path(SolicitudResource.SOLICITUD).get().build();
+        System.out.println(json);
+    }
+
+    @Test
+    public void getById() {
+        String json = restService
+                .restBuilder(new RestBuilder<String>().clazz(String.class))
+                .path(SolicitudResource.SOLICITUD).path(SolicitudResource.ID).expand(1).get().build();
+        System.out.println(json);
+    }
+
+    @Test
     public void createSolicitud() {
         String json = restService
                 .restBuilder(new RestBuilder<String>().clazz(String.class))
@@ -40,4 +56,5 @@ public class SolicitudResourceTest {
         System.out.println(json);
 
     }
+
 }

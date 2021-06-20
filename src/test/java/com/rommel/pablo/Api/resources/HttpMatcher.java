@@ -1,4 +1,4 @@
-package com.rommel.pablo.Api.restcontrollers;
+package com.rommel.pablo.Api.resources;
 
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
