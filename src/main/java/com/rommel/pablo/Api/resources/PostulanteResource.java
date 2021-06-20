@@ -39,6 +39,5 @@ public class PostulanteResource {
         } else {
             return new ResponseEntity("\"El Postulante no  existe\"", HttpStatus.NOT_FOUND);
         }
-
     }
 }
