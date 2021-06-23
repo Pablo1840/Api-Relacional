@@ -30,4 +30,6 @@ public class PostulanteController {
     public List<Postulante> findPostulantesBySolicitud_CodigoSolicitud(int codSolicitud) {
         return this.postulanteRepository.findPostulantesBySolicitud_CodigoSolicitud(codSolicitud);
     }
+
+
 }
