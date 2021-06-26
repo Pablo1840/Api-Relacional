@@ -3,6 +3,7 @@ package com.rommel.pablo.Api.resources;
 import com.rommel.pablo.Api.controllers.PostulanteController;
 import com.rommel.pablo.Api.entities.Postulante;
 import com.rommel.pablo.Api.entities.Solicitud;
+import com.rommel.pablo.Api.resources.exceptions.EditPostulanteException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,6 +42,15 @@ public class PostulanteResource {
         }
     }
 
-
+    @PutMapping(value = ID)
+    public ResponseEntity editPostulante(@RequestBody Postulante postulante, @PathVariable int codPostulante) throws EditPostulanteException {
+        try {
+            if (this.postulanteController.editPostulanteByCodPostulante(codPostulante, postulante))
+                return new ResponseEntity("\"El postulante fue editado\"", HttpStatus.ACCEPTED);
+            return new ResponseEntity("\"El postulante no  existe\"", HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            throw new EditPostulanteException("Los datos enviados no son los correctos");
+        }
+    }
 
 }

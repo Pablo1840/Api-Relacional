@@ -31,5 +31,18 @@ public class PostulanteController {
         return this.postulanteRepository.findPostulantesBySolicitud_CodigoSolicitud(codSolicitud);
     }
 
+    public boolean editPostulanteByCodPostulante(int codPostulante, Postulante postulante) {
+        Optional<Postulante> postulanteOptional = this.findPostulanteByCodPostulante(codPostulante);
+        if (!postulanteOptional.isPresent()) return false;
+        Postulante postulantedb = postulanteOptional.get();
+        postulantedb.setNombres(postulante.getNombres());
+        postulantedb.setApellidos(postulante.getApellidos());
+        postulantedb.setCi(postulante.getCi());
+        postulantedb.setTitulo(postulante.getTitulo());
+        postulantedb.setExperiencia(postulante.getExperiencia());
+        postulantedb.setEstado(postulante.getEstado());
+        postulanteRepository.save(postulantedb);
+        return true;
+    }
 
 }
