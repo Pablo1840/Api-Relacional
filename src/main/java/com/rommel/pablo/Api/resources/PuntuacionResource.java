@@ -7,11 +7,9 @@ import com.rommel.pablo.Api.entities.Solicitud;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -27,14 +25,10 @@ public class PuntuacionResource {
         this.puntuacionController = puntuacionController;
     }
 
-    @GetMapping(value = ID)
-    public ResponseEntity getNotasPostulanteById(@PathVariable int codPostulante) {
-        Optional<Puntuacion> puntuacionOptional = this.puntuacionController.findPuntuacionsByPostulante_CodPostulante(codPostulante);
-        if (puntuacionOptional.isPresent()) {
-            return new ResponseEntity(puntuacionOptional.get(), HttpStatus.OK);
-        } else {
-            return new ResponseEntity("\"No existe notas del Postulante\"", HttpStatus.NOT_FOUND);
-        }
-
+    @GetMapping
+    public List<Puntuacion> getAllCalificaciones(@RequestParam(required = false) Integer codPostulante) {
+        if (codPostulante == null) return this.puntuacionController.findAllCalificaciones();
+        return this.puntuacionController.findPuntuacionsByPostulante_CodPostulante(codPostulante);
     }
+
 }

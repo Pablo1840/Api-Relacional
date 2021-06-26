@@ -18,8 +18,15 @@ public class PuntuacionController {
         this.puntuacionRepository = puntuacionRepository;
     }
 
-    public Optional<Puntuacion> findPuntuacionsByPostulante_CodPostulante(int codPostulante) {
+    public List<Puntuacion> findAllCalificaciones() {
+        return this.puntuacionRepository.findAll();
+    }
+
+
+
+    public List<Puntuacion> findPuntuacionsByPostulante_CodPostulante(int codPostulante) {
         return this.puntuacionRepository.findPuntuacionsByPostulante_CodPostulante(codPostulante);
     }
+
 
 }
