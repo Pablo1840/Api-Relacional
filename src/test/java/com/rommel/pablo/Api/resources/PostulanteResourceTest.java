@@ -50,6 +50,13 @@ public class PostulanteResourceTest {
         System.out.println(json);
     }
 
+    @Test
+    public void getPostulantesByCodSolicitud() {
+        String json = restService
+                .restBuilder(new RestBuilder<String>().clazz(String.class))
+                .path(PostulanteResource.POSTULANTE).path(PostulanteResource.CODSOLICITUD).path(PostulanteResource.CODSOLICITUDID).expand(101).get().build();
+        System.out.println(json);
+    }
 
     @Test
     public void editPostulante() {

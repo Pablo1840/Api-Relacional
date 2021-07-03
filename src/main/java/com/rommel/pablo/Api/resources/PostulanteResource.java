@@ -18,7 +18,8 @@ public class PostulanteResource {
 
     public static final String POSTULANTE = "/postulante";
     public static final String ID = "/{codPostulante}";
-    public static final String CODSOLICITUD = "/{solicitud_codigo_solicitud}";
+    public static final String CODSOLICITUD = "/codSolicitud";
+    public static final String CODSOLICITUDID = "/{codSolicitud}";
 
     private PostulanteController postulanteController;
 
@@ -39,6 +40,15 @@ public class PostulanteResource {
             return new ResponseEntity(postulanteOptional.get(), HttpStatus.OK);
         } else {
             return new ResponseEntity("\"El Postulante no  existe\"", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping(value = CODSOLICITUD + CODSOLICITUDID)
+    public ResponseEntity getPostulantesByCodSolicitud(@PathVariable Integer codSolicitud) {
+        if (codSolicitud == null){
+            return new ResponseEntity("\"No existe postulantes asignados\"", HttpStatus.NOT_FOUND);
+        }else{
+            return new ResponseEntity(this.postulanteController.findPostulantesBySolicitud_CodigoSolicitud(codSolicitud),HttpStatus.OK);
         }
     }
 
