@@ -31,7 +31,7 @@ public class SolicitudResource {
     }
 
     @GetMapping(value = ID)
-    public ResponseEntity getProductById(@PathVariable int codigoSolicitud) {
+    public ResponseEntity getSolicitudById(@PathVariable int codigoSolicitud) {
         Optional<Solicitud> solicitudOptional = this.solicitudController.findSolicitudByCodSolicitud(codigoSolicitud);
         if (solicitudOptional.isPresent()) {
             return new ResponseEntity(solicitudOptional.get(), HttpStatus.OK);
@@ -40,6 +40,7 @@ public class SolicitudResource {
         }
 
     }
+
 
     @PostMapping
     public ResponseEntity createSolicitud(@RequestBody Solicitud solicitud) throws SolicitudCreateException {

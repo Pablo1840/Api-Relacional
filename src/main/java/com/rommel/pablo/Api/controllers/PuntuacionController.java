@@ -23,7 +23,6 @@ public class PuntuacionController {
     }
 
 
-
     public List<Puntuacion> findPuntuacionsByPostulante_CodPostulante(int codPostulante) {
         return this.puntuacionRepository.findPuntuacionsByPostulante_CodPostulante(codPostulante);
     }

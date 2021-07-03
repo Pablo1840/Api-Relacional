@@ -1,9 +1,7 @@
 package com.rommel.pablo.Api.resources;
 
 import com.rommel.pablo.Api.controllers.PuntuacionController;
-import com.rommel.pablo.Api.controllers.SolicitudController;
 import com.rommel.pablo.Api.entities.Puntuacion;
-import com.rommel.pablo.Api.entities.Solicitud;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +15,7 @@ import java.util.Optional;
 public class PuntuacionResource {
     public static final String PUNTUACION = "/puntuacion";
     public static final String ID = "/{codigoEvaluacion}";
+    public static final String CODPOSTULANTE = "/{codPostulante}";
 
     private PuntuacionController puntuacionController;
 
@@ -26,9 +25,16 @@ public class PuntuacionResource {
     }
 
     @GetMapping
-    public List<Puntuacion> getAllCalificaciones(@RequestParam(required = false) Integer codPostulante) {
-        if (codPostulante == null) return this.puntuacionController.findAllCalificaciones();
-        return this.puntuacionController.findPuntuacionsByPostulante_CodPostulante(codPostulante);
+    public List<Puntuacion> getAllCalificaciones() {
+        return this.puntuacionController.findAllCalificaciones();
     }
 
+    @GetMapping(value = CODPOSTULANTE)
+    public ResponseEntity getAllCalificacionesByCodPostulante(@PathVariable Integer codPostulante) {
+       if (codPostulante == null){
+           return new ResponseEntity("\"El postulante no existe\"", HttpStatus.NOT_FOUND);
+       }else{
+           return new ResponseEntity(this.puntuacionController.findPuntuacionsByPostulante_CodPostulante(codPostulante),HttpStatus.OK);
+       }
+    }
 }

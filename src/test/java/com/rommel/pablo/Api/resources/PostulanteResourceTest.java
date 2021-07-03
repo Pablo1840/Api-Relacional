@@ -35,7 +35,7 @@ public class PostulanteResourceTest {
     }
 
     @Test
-    public void getAllPostulante() {
+    public void getAllPostulantes() {
         String json = restService
                 .restBuilder(new RestBuilder<String>().clazz(String.class))
                 .path(PostulanteResource.POSTULANTE).get().build();
@@ -49,6 +49,7 @@ public class PostulanteResourceTest {
                 .path(PostulanteResource.POSTULANTE).path(PostulanteResource.ID).expand(201).get().build();
         System.out.println(json);
     }
+
 
     @Test
     public void editPostulante() {

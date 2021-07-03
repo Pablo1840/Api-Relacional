@@ -18,6 +18,7 @@ public class PostulanteResource {
 
     public static final String POSTULANTE = "/postulante";
     public static final String ID = "/{codPostulante}";
+    public static final String CODSOLICITUD = "/{solicitud_codigo_solicitud}";
 
     private PostulanteController postulanteController;
 
@@ -27,9 +28,8 @@ public class PostulanteResource {
     }
 
     @GetMapping
-    public List<Postulante> getAllPostulantes(@RequestParam(required = false) Integer codSolicitud) {
-        if (codSolicitud == null) return this.postulanteController.findAllPostulantes();
-        return this.postulanteController.findPostulantesBySolicitud_CodigoSolicitud(codSolicitud);
+    public List<Postulante>getAllPostulantes(){
+        return this.postulanteController.findAllPostulantes();
     }
 
     @GetMapping(value = ID)
@@ -41,6 +41,7 @@ public class PostulanteResource {
             return new ResponseEntity("\"El Postulante no  existe\"", HttpStatus.NOT_FOUND);
         }
     }
+
 
     @PutMapping(value = ID)
     public ResponseEntity editPostulante(@RequestBody Postulante postulante, @PathVariable int codPostulante) throws EditPostulanteException {

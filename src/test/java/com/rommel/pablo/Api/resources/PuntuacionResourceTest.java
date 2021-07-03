@@ -1,7 +1,6 @@
 package com.rommel.pablo.Api.resources;
 
 import com.rommel.pablo.Api.entities.Puntuacion;
-import com.rommel.pablo.Api.entities.Solicitud;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +26,14 @@ public class PuntuacionResourceTest {
         String json = restService
                 .restBuilder(new RestBuilder<String>().clazz(String.class))
                 .path(PuntuacionResource.PUNTUACION).get().build();
+        System.out.println(json);
+    }
+
+    @Test
+    public void getCalificacionesByCodPostulante() {
+        String json = restService
+                .restBuilder(new RestBuilder<String>().clazz(String.class))
+                .path(PuntuacionResource.PUNTUACION).path(PuntuacionResource.CODPOSTULANTE).expand(202).get().build();
         System.out.println(json);
     }
 }
