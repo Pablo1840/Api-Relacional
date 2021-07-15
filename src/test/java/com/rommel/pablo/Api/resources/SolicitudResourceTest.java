@@ -29,6 +29,7 @@ public class SolicitudResourceTest {
         this.solicitud.setRazon("Renuncia Repentina");
         this.solicitud.setNombre("Ingenieria en Software");
         this.solicitud.setEstado("En proceso");
+        this.solicitud.setPerfild("Magister en Sistemas");
         this.solicitud.setFecha(fecha);
     }
 

@@ -2,6 +2,8 @@ package com.rommel.pablo.Api.resources;
 
 import com.rommel.pablo.Api.controllers.UserController;
 import com.rommel.pablo.Api.dtos.UserDto;
+import com.rommel.pablo.Api.entities.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,11 @@ public class AuthResource {
     @Autowired
     public AuthResource(UserController userController) {
         this.userController = userController;
+    }
+    
+    @PostMapping
+    public void createUser(@RequestBody User user) {
+        this.userController.createUser(user);
     }
 
     @PostMapping(value = LOGIN)

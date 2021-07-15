@@ -2,7 +2,6 @@ package com.rommel.pablo.Api.resources;
 
 import com.rommel.pablo.Api.controllers.PostulanteController;
 import com.rommel.pablo.Api.entities.Postulante;
-import com.rommel.pablo.Api.entities.Solicitud;
 import com.rommel.pablo.Api.resources.exceptions.EditPostulanteException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,7 +1,6 @@
 package com.rommel.pablo.Api.controllers;
 
 import com.rommel.pablo.Api.entities.Postulante;
-import com.rommel.pablo.Api.entities.Solicitud;
 import com.rommel.pablo.Api.repositories.PostulanteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,11 +35,9 @@ public class PostulanteController {
         if (!postulanteOptional.isPresent()) return false;
         Postulante postulantedb = postulanteOptional.get();
         postulantedb.setNombres(postulante.getNombres());
-        postulantedb.setApellidos(postulante.getApellidos());
-        postulantedb.setCi(postulante.getCi());
+        postulantedb.setCurriculo(postulante.getCurriculo());
+        postulantedb.setCertificadobanca(postulante.getCertificadobanca());
         postulantedb.setTitulo(postulante.getTitulo());
-        postulantedb.setExperiencia(postulante.getExperiencia());
-        postulantedb.setEstado(postulante.getEstado());
         postulanteRepository.save(postulantedb);
         return true;
     }

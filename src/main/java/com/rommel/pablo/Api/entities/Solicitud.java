@@ -15,23 +15,25 @@ public class Solicitud {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int codigoSolicitud;
 	
-	private String razon,nombre,estado;
+	private String razon,nombre,estado,perfild;
 	private Date fecha;
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private User usuario;
 	
 	
-	public Solicitud(int codigoSolicitud, String razon, String nombre, String estado, Date fecha, User codUser) {
+	public Solicitud(int codigSolicitud, String razon, String nombre, String estado,String perfild, Date fecha, User codUser) {
 		this.codigoSolicitud = codigoSolicitud;
 		this.razon = razon;
 		this.nombre = nombre;
 		this.estado = estado;
+		this.perfild = perfild;
 	}
 	
 	public Solicitud(){
 		
 	}
+	
 	
 	@Override
     public boolean equals(Object obj) {
@@ -42,13 +44,16 @@ public class Solicitud {
                 && Objects.equals(razon, solicitud.getRazon())
                 && Objects.equals(nombre, solicitud.getNombre())
                 && Objects.equals(estado, solicitud.getEstado())
+                && Objects.equals(perfild, solicitud.getPerfild())
                 && Objects.equals(fecha, solicitud.getFecha());
    }
 	
 	@Override
     public int hashCode() {
-        return Objects.hash(codigoSolicitud, razon, nombre, estado, fecha);
+        return Objects.hash(codigoSolicitud, razon, nombre, estado,perfild, fecha);
    }
+
+
 
 	public int getCodigoSolicitud() {
 		return codigoSolicitud;
@@ -80,6 +85,16 @@ public class Solicitud {
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+	
+	
+
+	public String getPerfild() {
+		return perfild;
+	}
+
+	public void setPerfild(String perfild) {
+		this.perfild = perfild;
 	}
 
 	public Date getFecha() {

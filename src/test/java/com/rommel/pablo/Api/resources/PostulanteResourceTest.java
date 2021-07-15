@@ -27,11 +27,9 @@ public class PostulanteResourceTest {
     public void before() {
         postulante = new Postulante();
         this.postulante.setNombres("Alberto");
-        this.postulante.setApellidos("Casas");
-        this.postulante.setCi("1725351330");
-        this.postulante.setExperiencia("2 años");
+        this.postulante.setCurriculo("");
+        this.postulante.setCertificadobanca("1725351330");
         this.postulante.setTitulo("Ingeniero");
-        this.postulante.setEstado("Aprobado");
     }
 
     @Test
@@ -61,11 +59,9 @@ public class PostulanteResourceTest {
     @Test
     public void editPostulante() {
         this.postulante.setNombres("Pedro Juan");
-        this.postulante.setApellidos("Hernandez Abad");
-        this.postulante.setCi("171621008");
+        this.postulante.setCurriculo("ruta");
+        this.postulante.setCertificadobanca("ruta");
         this.postulante.setTitulo("Ing. Sistemas");
-        this.postulante.setExperiencia("2 años");
-        this.postulante.setEstado("Aprobado");
         this.postulante.setCodPostulante(3);
         String json = restService
                 .restBuilder(new RestBuilder<String>().clazz(String.class))

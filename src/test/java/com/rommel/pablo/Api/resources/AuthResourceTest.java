@@ -1,6 +1,8 @@
 package com.rommel.pablo.Api.resources;
 
 import com.rommel.pablo.Api.dtos.UserDto;
+import com.rommel.pablo.Api.entities.User;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -23,12 +25,29 @@ public class AuthResourceTest {
     private RestService restService;
 
     private UserDto userDto;
+    private User user;
 
     @Before
     public void Before(){
         userDto=new UserDto();
+        user = new User();
         userDto.setEmail("prueba@gmail.com");
         userDto.setContrasena("12345");
+        user.setNombres("Pablo");
+        user.setApellidos("Salazar");
+        user.setEmail("prueba@gmail.com");
+        user.setContrasena("12345");
+        user.setCargo("Director de Carrera");
+        user.setArea("Software");
+    }
+    
+    @Test
+    public void createUser() {
+        String json=
+                restService.restBuilder(new RestBuilder<String>().clazz(String.class))
+                        .path(AuthResource.AUTH)
+                        .body(this.user).post().build();
+        System.out.println(json);
     }
 
     @Test

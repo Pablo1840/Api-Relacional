@@ -33,7 +33,8 @@ public class User {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		User user = (User) o;
-		return codUsuario == user.codUsuario && Objects.equals(cargo, user.cargo) && Objects.equals(nombres, user.nombres) && Objects.equals(apellidos, user.apellidos) && Objects.equals(email, user.email) && Objects.equals(contrasena, user.contrasena) && Objects.equals(area, user.area);
+		return codUsuario == user.codUsuario 
+				&& Objects.equals(cargo, user.cargo) && Objects.equals(nombres, user.nombres) && Objects.equals(apellidos, user.apellidos) && Objects.equals(email, user.email) && Objects.equals(contrasena, user.contrasena) && Objects.equals(area, user.area);
 	}
 
 	@Override

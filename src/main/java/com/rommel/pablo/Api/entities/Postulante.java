@@ -11,20 +11,19 @@ public class Postulante {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codPostulante;
 	
-	private String nombres,apellidos,ci,titulo,experiencia,estado;
+	private String nombres,curriculo,certificadobanca,titulo;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Solicitud solicitud;
 	
-	public Postulante(int codPostulante, String nombres, String apellidos, String ci, String titulo,
+	public Postulante(int codPostulante, String nombres, String curriculo, String certificadobanca, String titulo,
 			String experiencia, String estado) {
 		this.codPostulante = codPostulante;
 		this.nombres = nombres;
-		this.apellidos = apellidos;
-		this.ci = ci;
+		this.curriculo = curriculo;
 		this.titulo = titulo;
-		this.experiencia = experiencia;
-		this.estado = estado;
+		this.certificadobanca = certificadobanca;
+	
 	}
 	
 	public Postulante() {
@@ -36,13 +35,16 @@ public class Postulante {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		Postulante that = (Postulante) o;
-		return Objects.equals(codPostulante, that.codPostulante) && Objects.equals(nombres, that.nombres) && Objects.equals(apellidos, that.apellidos) && Objects.equals(ci, that.ci) && Objects.equals(titulo, that.titulo) && Objects.equals(experiencia, that.experiencia) && Objects.equals(estado, that.estado) && Objects.equals(solicitud, that.solicitud);
+		return Objects.equals(codPostulante, that.codPostulante) && Objects.equals(nombres, that.nombres) && Objects.equals(curriculo, that.curriculo) && Objects.equals(certificadobanca, that.certificadobanca) && Objects.equals(titulo, that.titulo) && Objects.equals(solicitud, that.solicitud);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(codPostulante, nombres, apellidos, ci, titulo, experiencia, estado, solicitud);
+		return Objects.hash(codPostulante, nombres, curriculo, certificadobanca, titulo, solicitud);
 	}
+
+	
+	
 
 	public Integer getCodPostulante() {
 		return codPostulante;
@@ -60,22 +62,6 @@ public class Postulante {
 		this.nombres = nombres;
 	}
 
-	public String getApellidos() {
-		return apellidos;
-	}
-
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
-	}
-
-	public String getCi() {
-		return ci;
-	}
-
-	public void setCi(String ci) {
-		this.ci = ci;
-	}
-
 	public String getTitulo() {
 		return titulo;
 	}
@@ -84,20 +70,21 @@ public class Postulante {
 		this.titulo = titulo;
 	}
 
-	public String getExperiencia() {
-		return experiencia;
+	
+	public String getCurriculo() {
+		return curriculo;
 	}
 
-	public void setExperiencia(String experiencia) {
-		this.experiencia = experiencia;
+	public void setCurriculo(String curriculo) {
+		this.curriculo = curriculo;
 	}
 
-	public String getEstado() {
-		return estado;
+	public String getCertificadobanca() {
+		return certificadobanca;
 	}
 
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setCertificadobanca(String certificadobanca) {
+		this.certificadobanca = certificadobanca;
 	}
 
 	public Solicitud getSolicitud() {
