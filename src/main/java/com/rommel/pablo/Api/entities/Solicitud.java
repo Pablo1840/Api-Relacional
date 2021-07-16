@@ -22,7 +22,7 @@ public class Solicitud {
     private User usuario;
 	
 	
-	public Solicitud(int codigSolicitud, String razon, String nombre, String estado,String perfild, Date fecha, User codUser) {
+	public Solicitud(int codigoSolicitud, String razon, String nombre, String estado,String perfild, Date fecha, User codUser) {
 		this.codigoSolicitud = codigoSolicitud;
 		this.razon = razon;
 		this.nombre = nombre;
@@ -52,7 +52,6 @@ public class Solicitud {
     public int hashCode() {
         return Objects.hash(codigoSolicitud, razon, nombre, estado,perfild, fecha);
    }
-
 
 
 	public int getCodigoSolicitud() {
