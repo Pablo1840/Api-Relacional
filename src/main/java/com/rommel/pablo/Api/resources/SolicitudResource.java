@@ -15,7 +15,7 @@ import java.util.Optional;
 @RequestMapping(SolicitudResource.SOLICITUD)
 public class SolicitudResource {
     public static final String SOLICITUD = "/solicitud";
-    public static final String ID = "/{codigoSolicitud}";
+    public static final String ID = "/{idsolicitud}";
 
     private SolicitudController solicitudController;
 
@@ -31,8 +31,8 @@ public class SolicitudResource {
     }
 
     @GetMapping(value = ID)
-    public ResponseEntity getSolicitudById(@PathVariable int codigoSolicitud) {
-        Optional<Solicitud> solicitudOptional = this.solicitudController.findSolicitudByCodSolicitud(codigoSolicitud);
+    public ResponseEntity getSolicitudById(@PathVariable int idsolicitud) {
+        Optional<Solicitud> solicitudOptional = this.solicitudController.findSolicitudByCodSolicitud(idsolicitud);
         if (solicitudOptional.isPresent()) {
             return new ResponseEntity(solicitudOptional.get(), HttpStatus.OK);
         } else {

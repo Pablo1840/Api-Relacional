@@ -13,16 +13,17 @@ public class Puntuacion {
     private int codigoEvaluacion;
 	
 	private int calificacion;
-	private String calificador;
+	private String calificador, rubrica;
 	
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Postulante postulante;
 	
-	public Puntuacion(int codigoEvaluacion, int calificacion, String calificador) {
+	public Puntuacion(int codigoEvaluacion, int calificacion, String calificador, String rubrica) {
 		this.codigoEvaluacion = codigoEvaluacion;
 		this.calificacion = calificacion;
 		this.calificador = calificador;
+		this.rubrica = rubrica;
 	}
 	
 	
@@ -36,12 +37,14 @@ public class Puntuacion {
         if (obj == null || getClass() != obj.getClass()) return false;
         Puntuacion puntuacion = (Puntuacion) obj;
         return Objects.equals(codigoEvaluacion, puntuacion.getCodigoEvaluacion())
-                && Objects.equals(calificacion, puntuacion.getCalificacion());
+                && Objects.equals(calificacion, puntuacion.getCalificacion())
+                && Objects.equals(calificador, puntuacion.getCalificador())
+                && Objects.equals(rubrica, puntuacion.getRubrica());
    }
 	
 	@Override
     public int hashCode() {
-        return Objects.hash(codigoEvaluacion, calificador, calificacion);
+        return Objects.hash(codigoEvaluacion, calificador, calificacion, rubrica);
    }
 
 
@@ -75,6 +78,16 @@ public class Puntuacion {
 	}
 
 
+	public String getRubrica() {
+		return rubrica;
+	}
+
+
+	public void setRubrica(String rubrica) {
+		this.rubrica = rubrica;
+	}
+
+	
 	
 	
 }

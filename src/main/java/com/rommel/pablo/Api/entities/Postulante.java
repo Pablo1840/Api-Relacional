@@ -9,20 +9,21 @@ import java.util.Objects;
 public class Postulante {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer codPostulante;
+    private int codPostulante;
 	
-	private String nombres,curriculo,certificadobanca,titulo;
+	private String nombres,curriculo,certificadobanca,titulo,ci;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Solicitud solicitud;
 	
 	public Postulante(int codPostulante, String nombres, String curriculo, String certificadobanca, String titulo,
-			String experiencia, String estado) {
+			String experiencia, String estado, String ci) {
 		this.codPostulante = codPostulante;
 		this.nombres = nombres;
 		this.curriculo = curriculo;
 		this.titulo = titulo;
 		this.certificadobanca = certificadobanca;
+		this.ci = ci;
 	
 	}
 	
@@ -35,12 +36,12 @@ public class Postulante {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		Postulante that = (Postulante) o;
-		return Objects.equals(codPostulante, that.codPostulante) && Objects.equals(nombres, that.nombres) && Objects.equals(curriculo, that.curriculo) && Objects.equals(certificadobanca, that.certificadobanca) && Objects.equals(titulo, that.titulo) && Objects.equals(solicitud, that.solicitud);
+		return Objects.equals(codPostulante, that.codPostulante) && Objects.equals(nombres, that.nombres) && Objects.equals(curriculo, that.curriculo) && Objects.equals(certificadobanca, that.certificadobanca) && Objects.equals(titulo, that.titulo) && Objects.equals(ci, that.ci) && Objects.equals(solicitud, that.solicitud);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(codPostulante, nombres, curriculo, certificadobanca, titulo, solicitud);
+		return Objects.hash(codPostulante, nombres, curriculo, certificadobanca, titulo, solicitud,ci);
 	}
 
 	
@@ -94,4 +95,15 @@ public class Postulante {
 	public void setSolicitud(Solicitud solicitud) {
 		this.solicitud = solicitud;
 	}
+
+	public String getCi() {
+		return ci;
+	}
+
+	public void setCi(String ci) {
+		this.ci = ci;
+	}
+	
+	
+	
 }
